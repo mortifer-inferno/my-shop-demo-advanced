@@ -5,7 +5,7 @@ const products = [
   {
     id: "p1",
     name: "boat music headphones",
-    image: "images/product1.png",
+    image: "./images/product1.png",
     ratingCount: 4.5,
     pricePaise: 1096,
   },

@@ -4,19 +4,122 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
 
     <!-- verification of google search console -->
-    <meta name="google-site-verification" content="R-SHiugMUBb0_GUMqrOgNwIX_E6ATP0AJtIbn6kDp38" />    
-    
+    <meta name="google-site-verification" content="R-SHiugMUBb0_GUMqrOgNwIX_E6ATP0AJtIbn6kDp38" />
+
     <title>Modestia Dux</title>
 
+    <!-- Tab icon: the image is embedded right here, so it can't go missing if a file is in the wrong folder -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAwFBMVEULFy4ADCoAAAAkKjTTtmnnx3FzZkiyl1eId05IRTw3OTpOTEHFq2Xz1HpWU0WliU4AAFULFy3Lp1lkXEW8pGQcJDILFywLFy4LFi4KFy2Ug1V3Yz56cFCum2DEnU/WsV2AbkjewXHhvGU/QD1kVTqGbT+fkF+hf0O7oV//4IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADow7s0AAAAMHRSTlP+/wD/////////////////AzL/////V5iz1/////////////////////8AAAAAAADUQo2fAAAB8UlEQVR42pWW24KjIAyGQRNABF1Fp63T7hz2/P4vuMgg9QS2/wUi8pEQgUCyLPuWZc3pQpK6nBrXMSPjozmTB3RuRoLY4oU8qBfbmTzR3xEka7bt1Gv7pbEubfynRBoxDIJJskHOGVkboDnjbcvrmitQIl8jDTmtWkzb2qHJ6I8UgGz1+USW8e/rlgVHLMSw65f/Y8n3nMuFE1QC5Imwcd6vnKY9QLQ7Fe1mkjYI+jeN9JdvRXD/x71a/SsjRF3f6113H2hWX2huoEAMw9JSyz0TlLWzt9tt9gJi1yc+a6ZyNiit931qWSwabDeyPcSCQSvc+3k5FDGgjABfFigNWyIAkAJY5corY6VfhgcAjPZz1FbeyQOg01dKmQZmBkQX3ANAafgqLIY8ZcEvBoW6lBph3DjcmaBFGtD6NljA/TE0KaDykwZEcNvGrkHhgLckAAJRdA6QHmjTgASUylu4HgPqg/AbATUCxs/hCCgropRb8SBJHNAecAG1AKXmsybHQOcBYwZo5QMAoAMQ8dOfagdzqNxxWhljinAkfE8BO/shDezsuBgQ3dMFz3fO72nSaQuXWUIZZAzIX2cJZUpZXPGu6/7yu+ogIf78CilrSopXmwbnen9nk16tfoakOKVdeqCQdp9P7M9eHZ6/nDx5/fkP3T4ZZWkUAYUAAAAASUVORK5CYII=" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#0B172E" />
+
     <link rel="stylesheet" href="shop.css" />
+    <script>
+      // hide the announcement bar before first paint if it was dismissed this session
+      try {
+        if (sessionStorage.getItem("announceDismissed")) {
+          document.documentElement.classList.add("announce-off");
+        }
+      } catch (e) {}
+    </script>
+    <script>
+      // Loading screen: the full preloader only ever plays once per visit
+      // (first load). Every refresh after that gets a much lighter loading
+      // bar instead of nothing. Neither shows for reduced-motion users.
+      (function () {
+        var SHOW_ONCE_PER_VISIT = true;
+        try {
+          var seen = SHOW_ONCE_PER_VISIT && sessionStorage.getItem("preloaded");
+          var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (calm) return;
+          if (!seen) {
+            document.documentElement.classList.add("preload");
+            // failsafe: whatever happens, never trap the visitor behind it
+            setTimeout(function () {
+              document.documentElement.classList.remove("preload");
+            }, 7000);
+          } else {
+            document.documentElement.classList.add("preload-secondary");
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
 
   <body>
+    <!-- Modestia Dux mark: defined once, reused with <use> in the navbar and footer -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="mdGold" gradientUnits="userSpaceOnUse" x1="96" y1="66" x2="416" y2="442">
+          <stop offset="0" stop-color="#B08A45" />
+          <stop offset=".48" stop-color="#E6CB78" />
+          <stop offset="1" stop-color="#B08A45" />
+        </linearGradient>
+        <clipPath id="mdCapM"><rect x="150" y="240.5" width="240" height="137" /></clipPath>
+        <clipPath id="mdCapB"><rect x="150" y="236" width="240" height="146" /></clipPath>
+
+        <!-- fine cut: footer and larger sizes -->
+        <symbol id="mdMark" viewBox="82 62 348 392">
+          <g fill="none" stroke="url(#mdGold)" stroke-linejoin="miter" stroke-miterlimit="12">
+            <path d="M116 436 V214 A140 140 0 0 1 396 214 V436" stroke-width="6.5" />
+            <path d="M133 436 V214 A123 123 0 0 1 379 214 V436" stroke-width="2.4" />
+            <path d="M92 442 H420" stroke-width="6.5" />
+            <path clip-path="url(#mdCapM)" d="M194 377.5 V246 L225 322 L256 246 H279 C310 246 326 274 326 309 C326 344 310 372 279 372 H256 V240.5" stroke-width="11" />
+          </g>
+          <path d="M256 150 L267 168 L256 186 L245 168 Z" fill="url(#mdGold)" />
+        </symbol>
+
+        <!-- bold cut: navbar, stays crisp when small -->
+        <symbol id="mdMarkBold" viewBox="84 58 344 406">
+          <g fill="none" stroke="url(#mdGold)" stroke-linejoin="miter" stroke-miterlimit="12">
+            <path d="M116 436 V214 A140 140 0 0 1 396 214 V436" stroke-width="15" />
+            <path d="M90 449 H422" stroke-width="15" />
+            <path clip-path="url(#mdCapB)" d="M194 382 V246 L225 322 L256 246 H279 C310 246 326 274 326 309 C326 344 310 372 279 372 H256 V236" stroke-width="20" />
+          </g>
+          <path d="M256 138 L271 162 L256 186 L241 162 Z" fill="url(#mdGold)" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="secondary-loader" id="secondaryLoader" aria-hidden="true"></div>
+    <div class="secondary-mark" id="secondaryMark" aria-hidden="true">
+      <svg viewBox="84 58 344 406" stroke-linejoin="miter" stroke-miterlimit="12">
+        <clipPath id="scCap"><rect x="150" y="236" width="240" height="146" /></clipPath>
+        <path d="M116 436 V214 A140 140 0 0 1 396 214 V436" stroke-width="18" />
+        <path d="M90 449 H422" stroke-width="18" />
+        <path clip-path="url(#scCap)" d="M194 382 V246 L225 322 L256 246 H279 C310 246 326 274 326 309 C326 344 310 372 279 372 H256 V236" stroke-width="24" />
+      </svg>
+    </div>
+    <div class="preloader" id="preloader" role="status" aria-label="Loading Modestia Dux">
+      <div class="preloader-door preloader-door--left"></div>
+      <div class="preloader-door preloader-door--right"></div>
+      <div class="preloader-content">
+        <svg class="preloader-mark" viewBox="82 62 348 392" aria-hidden="true">
+          <clipPath id="plCap"><rect x="150" y="241.5" width="240" height="135" /></clipPath>
+          <path class="draw d1" pathLength="1" d="M116 436 V214 A140 140 0 0 1 396 214 V436" />
+          <path class="draw d2" pathLength="1" d="M133 436 V214 A123 123 0 0 1 379 214 V436" />
+          <path class="draw d3" pathLength="1" d="M92 442 H420" />
+          <path class="draw d4" pathLength="1" clip-path="url(#plCap)" d="M194 376.5 V246 L225 322 L256 246 H279 C310 246 326 274 326 309 C326 344 310 372 279 372 H256 V241.5" />
+          <path class="lozenge" d="M256 150 L267 168 L256 186 L245 168 Z" />
+        </svg>
+        <p class="preloader-name">Modestia Dux</p>
+        <span class="preloader-line"></span>
+        <p class="preloader-tagline">Restraint, well made.</p>
+      </div>
+    </div>
+
+    <div class="announce-bar" id="announceBar" role="region" aria-label="Announcements">
+      <p class="announce-msg" id="announceMsg"></p>
+      <button class="announce-close" id="announceClose" type="button" aria-label="Dismiss announcement">✕</button>
+    </div>
+
     <header>
       <nav>
         <div class="logo-container">
+          <svg class="logo-mark" id="logoMark" viewBox="84 58 344 406" aria-hidden="true" focusable="false"><use href="#mdMarkBold" /></svg>
           <a href="#">Modestia Dux</a>
         </div>
 
@@ -24,6 +127,9 @@
           <a href="#">home</a>
           <a href="#categories">categories</a>
           <a href="#">about</a>
+          <button class="nav-search-btn" id="navSearchBtn" type="button" aria-label="Search products">
+            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          </button>
           <div class="cart-icon-wrap" id="cartIconBtn">
             🛒
             <span class="cart-count" id="cartCount">0</span>
@@ -32,20 +138,86 @@
       </nav>
 
       <section class="hero">
-        <div class="hero-content-container">
-          <p class="hero-kicker">Since the quiet pursuit of good taste</p>
-          <h1>Restraint,<br /><span>well made.</span></h1>
-          <p>
-            We keep the collection small on purpose. Every piece is chosen
-            for how it wears in, not how it photographs — built to be worn
-            for years, not seasons.
-          </p>
-          <a href="#shop" class="primary-button hero-button">Explore the Collection</a>
+        <div class="hero-inner">
+          <div class="hero-content-container">
+            <p class="hero-kicker">Since the quiet pursuit of good taste</p>
+            <h1>Restraint,<br /><span>well made.</span></h1>
+            <p>
+              We keep the collection small on purpose. Every piece is chosen
+              for how it wears in, not how it photographs — built to be worn
+              for years, not seasons.
+            </p>
+            <a href="#shop" class="primary-button hero-button">Explore the Collection</a>
+          </div>
+
+          <div class="hero-stage" aria-hidden="true">
+            <div class="hero-visual hero-visual--main">
+              <div class="hero-visual-frame">
+                <img
+                  src="https://images.unsplash.com/photo-1546333456-3e8ed81f41e2?auto=format&fit=crop&w=1000&q=80"
+                  alt=""
+                  loading="eager"
+                />
+              </div>
+            </div>
+            <div class="hero-visual hero-visual--accent">
+              <div class="hero-visual-frame">
+                <img
+                  src="https://images.unsplash.com/photo-1612023395494-1c4050b68647?auto=format&fit=crop&w=700&q=80"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </header>
 
+    <section class="promo" id="promo" aria-label="Featured product" hidden>
+      <div class="promo-inner">
+        <div class="promo-media">
+          <img id="promoImage" src="" alt="" />
+        </div>
+        <div class="promo-copy">
+          <p class="promo-kicker" id="promoKicker"></p>
+          <h2 id="promoHeadline"></h2>
+          <p class="promo-text" id="promoText"></p>
+        </div>
+        <button class="primary-button promo-button" id="promoButton" type="button"></button>
+      </div>
+    </section>
+
     <section id="shop">
+      <div class="search-section" id="searchSection">
+        <form class="search-stage" id="searchForm" role="search" aria-label="Search the collection">
+          <div class="search-bar" id="searchBar">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search the collection"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Search products"
+              aria-controls="searchCount"
+            />
+            <button class="search-clear" id="searchClear" type="button" aria-label="Clear search" hidden>✕</button>
+            <kbd class="search-kbd" aria-hidden="true">/</kbd>
+          </div>
+        </form>
+
+        <div class="search-meta">
+          <p class="search-count" id="searchCount" role="status" aria-live="polite"></p>
+          <div class="search-chips" id="searchChips"></div>
+        </div>
+
+        <div class="search-empty" id="searchEmpty" hidden>
+          <p>Nothing in the collection matches “<span id="searchEmptyTerm"></span>”.</p>
+          <button class="primary-button search-empty-btn" id="searchEmptyClear" type="button">Show everything</button>
+        </div>
+      </div>
+
       <div class="items-grid-container">
         <div class="items-grid js-items-grid">
           <!-- content inside is declared in javascript -->
@@ -70,17 +242,9 @@
       </div>
     </div> -->
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p class="footer-brand">Modestia Dux</p>
-        <p class="footer-tagline">Quietly made. Built to last.</p>
-        <p class="footer-copy">&copy; <span id="footerYear"></span> Modestia Dux. All rights reserved.</p>
-      </div>
-    </footer>
-
     <div class="feedback-container">
-      <dialog id="feedbackDialog">
-        <button class="dialog-close" id="closeFeedbackBtn" type="button" aria-label="Close" onclick="closeFeedbackDialog()">✕</button>
+      <dialog id="feedbackDialog" class="pop-dialog">
+        <button class="dialog-close" id="closeFeedbackBtn" type="button" aria-label="Close">✕</button>
         <h2>How Do You Feel About Us?</h2>
         <p class="dialog-subtext">A line or two is plenty — we read every one.</p>
         <form id="feedbackForm">
@@ -88,13 +252,60 @@
           <input id="feedbackEmail" type="email" placeholder="you@example.com" required />
           <label for="feedbackMessage">Your thoughts</label>
           <input id="feedbackMessage" type="text" placeholder="Tell us what stood out" required />
+          <!-- spam trap: real visitors never see or fill this -->
+          <input id="feedbackHoney" class="hp-field" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <p class="feedback-status" id="feedbackStatus" role="status"></p>
           <button type="submit" class="primary-button">Send Feedback</button>
         </form>
       </dialog>
-      <button id="feedbackDialogBtn" onclick="openFeedbackDialog()">
+      <button id="feedbackDialogBtn">
         Share Your Thoughts
       </button>
     </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <svg class="footer-mark" viewBox="82 62 348 392" aria-hidden="true" focusable="false"><use href="#mdMark" /></svg>
+        <p class="footer-brand">Modestia Dux</p>
+        <p class="footer-tagline">Quietly made. Built to last.</p>
+        <p class="footer-copy">&copy; <span id="footerYear"></span> Modestia Dux. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <dialog id="productDetailDialog" class="pop-dialog product-dialog" aria-labelledby="pdName">
+      <button class="dialog-close" id="closeProductDetailBtn" type="button" aria-label="Close">✕</button>
+      <div class="product-dialog-body">
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="pdMainImage" src="" alt="" />
+            <div class="product-gallery-tint" id="pdColorTint" aria-hidden="true"></div>
+          </div>
+          <div class="product-gallery-thumbs" id="pdThumbs"></div>
+        </div>
+        <div class="product-info">
+          <h2 id="pdName"></h2>
+          <p class="product-dialog-price" id="pdPrice"></p>
+
+          <div class="product-option-group">
+            <span class="product-option-label">Color — <span class="pd-selected-dot" id="pdSelectedDot"></span><span id="pdSelectedColor"></span></span>
+            <div class="color-swatches" id="pdColors"></div>
+          </div>
+
+          <div class="product-option-group">
+            <span class="product-option-label">Size — <span id="pdSelectedSize"></span></span>
+            <div class="size-options" id="pdSizes"></div>
+          </div>
+
+          <div class="product-option-group">
+            <span class="product-option-label">Delivery</span>
+            <ul class="delivery-options" id="pdDelivery"></ul>
+          </div>
+
+          <p class="pd-note" id="pdNote"></p>
+          <button class="primary-button product-dialog-add" id="pdAddToCart" type="button">Add To Cart</button>
+        </div>
+      </div>
+    </dialog>
     <div class="cart-overlay" id="cartOverlay"></div>
     <aside class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
@@ -111,6 +322,7 @@
       </div>
     </aside>
 
-    <script defer type="module" src="scripts/shop.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
+    <script defer src="shop.js"></script>
   </body>
 </html>

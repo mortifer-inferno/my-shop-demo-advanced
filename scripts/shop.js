@@ -93,7 +93,7 @@ const products = [
   {
     id: "p1",
     name: "boat music headphones",
-    image: "../images/product1.png",
+    image: "images/product1.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -106,7 +106,7 @@ const products = [
   {
     id: "p2",
     name: "athletic wear t-shirt",
-    image: "../images/product2.png",
+    image: "images/product2.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 2,
@@ -120,7 +120,7 @@ const products = [
   {
     id: "p3",
     name: "athletic wear shirt",
-    image: "../images/product3.png",
+    image: "images/product3.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 4,
@@ -133,7 +133,7 @@ const products = [
   {
     id: "p4",
     name: "athletic socks",
-    image: "../images/product4.png",
+    image: "images/product4.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 2,
@@ -146,7 +146,7 @@ const products = [
   {
     id: "p5",
     name: "athletic wear t-shirt",
-    image: "../images/product5.png",
+    image: "images/product5.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -159,7 +159,7 @@ const products = [
   {
     id: "p6",
     name: "athletic wear t-shirt",
-    image: "../images/product6.png",
+    image: "images/product6.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 5,
@@ -172,7 +172,7 @@ const products = [
   {
     id: "p7",
     name: "athletic wear shoes",
-    image: "../images/product1.png",
+    image: "images/product1.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 6,
@@ -185,7 +185,7 @@ const products = [
   {
     id: "p8",
     name: "running shoes",
-    image: "../images/product3.png",
+    image: "images/product3.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 4,
@@ -198,7 +198,7 @@ const products = [
   {
     id: "p9",
     name: "athletic shirt",
-    image: "../images/product4.png",
+    image: "images/product4.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -211,7 +211,7 @@ const products = [
   {
     id: "p10",
     name: "athletic wear shoes",
-    image: "../images/product6.png",
+    image: "images/product6.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 5,
@@ -224,7 +224,7 @@ const products = [
   {
     id: "p11",
     name: "leather tote bag",
-    image: "../images/product2.png",
+    image: "images/product2.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 4,
@@ -237,7 +237,7 @@ const products = [
   {
     id: "p12",
     name: "formal shoes",
-    image: "../images/product3.png",
+    image: "images/product3.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 6,
@@ -250,7 +250,7 @@ const products = [
   {
     id: "p13",
     name: "noise cancelling headphones",
-    image: "../images/product1.png",
+    image: "images/product1.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -267,7 +267,7 @@ const products = [
   {
     id: "p14",
     name: "linen shirt",
-    image: "../images/product2.png",
+    image: "images/product2.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -280,7 +280,7 @@ const products = [
   {
     id: "p15",
     name: "wool scarf",
-    image: "../images/product4.png",
+    image: "images/product4.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 4,
@@ -293,7 +293,7 @@ const products = [
   {
     id: "p16",
     name: "leather belt",
-    image: "../images/product5.png",
+    image: "images/product5.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -306,7 +306,7 @@ const products = [
   {
     id: "p17",
     name: "canvas sneakers",
-    image: "../images/product3.png",
+    image: "images/product3.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 5,
@@ -319,7 +319,7 @@ const products = [
   {
     id: "p18",
     name: "slim leather wallet",
-    image: "../images/product6.png",
+    image: "images/product6.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 2,
@@ -332,7 +332,7 @@ const products = [
   {
     id: "p19",
     name: "classic sunglasses",
-    image: "../images/product1.png",
+    image: "images/product1.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 3,
@@ -345,7 +345,7 @@ const products = [
   {
     id: "p20",
     name: "everyday backpack",
-    image: "../images/product2.png",
+    image: "images/product2.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 4,
@@ -358,7 +358,7 @@ const products = [
   {
     id: "p21",
     name: "minimal wrist watch",
-    image: "../images/product4.png",
+    image: "images/product4.png",
     ratingCount: 4.5,
     pricePaise: 1096,
     deliveryDays: 6,
